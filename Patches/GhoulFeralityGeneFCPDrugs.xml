@@ -2,7 +2,7 @@
 <Patch MayRequire="Rick.FCP.Ghouls">
   <!-- Replace vanilla drugs in FCP_Gene_Ferality with FCP stimpaks, Jet variants, Psycho, Buffout and mixes (Jet/Psycho as components) -->
   <Operation Class="PatchOperationReplace">
-    <xpath>Defs/GeneDef[defName='FCP_Gene_Ferality']/modExtensions/li[@Class='FCP_Ghoul.FeralityGene_ModExtension']/drugs</xpath>
+    <xpath>Defs/GeneDef[defName='FCP_Gene_Ferality']/modExtensions/li[@Class='FCP.Core.Ghouls.FeralityGene_ModExtension']/drugs</xpath>
     <value>
       <drugs>
         <!-- Stimpak variants -->
