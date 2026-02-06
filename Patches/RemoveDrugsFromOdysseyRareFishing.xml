@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch MayRequire="Ludeon.RimWorld.Odyssey">
-  <!-- Remove specified drugs from rare fishing catches (RareFishingCatchesBase options) -->
+  <!-- Remove specified drugs from rare fishing catches -->
   <Operation Class="PatchOperationRemove">
     <xpath>Defs/ThingSetMakerDef[@Name='RareFishingCatchesBase']/root/options/li[thingSetMaker/fixedParams/filter/thingDefs/li='Luciferium']/thingSetMaker/fixedParams/filter/thingDefs/li[.='Luciferium']</xpath>
   </Operation>
