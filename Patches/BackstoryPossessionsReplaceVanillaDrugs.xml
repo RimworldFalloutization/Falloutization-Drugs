@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- Replace backstory vanilla drugs -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/BackstoryDef/possessions/Penoxycyline</xpath>
+    <value><FCP_Chem_Stimpak>10</FCP_Chem_Stimpak></value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/BackstoryDef/possessions/Flake</xpath>
+    <value><FCP_Chem_Jet>20</FCP_Chem_Jet></value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/BackstoryDef/possessions/PsychiteTea</xpath>
+    <value><SmokeleafJoint>3</SmokeleafJoint></value>
+  </Operation>
+</Patch>

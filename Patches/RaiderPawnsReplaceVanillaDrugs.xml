@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch MayRequire="Rick.FCP.Raiders">
+  <!-- In FCP-Raiders pawn kinds only: replace vanilla drugs with FCP chems -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/PawnKindDef[starts-with(defName,'FCP_') and not(contains(defName,'Khan'))]//thingDef[.='PsychiteTea']</xpath>
+    <value><thingDef>SmokeleafJoint</thingDef></value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/PawnKindDef[starts-with(defName,'FCP_') and not(contains(defName,'Khan'))]//thingDef[.='Flake']</xpath>
+    <value><thingDef>FCP_Chem_Jet</thingDef></value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/PawnKindDef[starts-with(defName,'FCP_') and not(contains(defName,'Khan'))]//thingDef[.='Yayo']</xpath>
+    <value><thingDef>FCP_Chem_Ultrajet</thingDef></value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/PawnKindDef[starts-with(defName,'FCP_') and not(contains(defName,'Khan'))]//thingDef[.='GoJuice']</xpath>
+    <value><thingDef>FCP_Chem_Psycho</thingDef></value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/PawnKindDef[starts-with(defName,'FCP_') and not(contains(defName,'Khan'))]//thingDef[.='WakeUp']</xpath>
+    <value><thingDef>FCP_Chem_Buffout</thingDef></value>
+  </Operation>
+</Patch>

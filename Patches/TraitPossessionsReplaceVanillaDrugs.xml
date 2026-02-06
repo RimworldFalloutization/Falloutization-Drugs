@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- Replace vanilla drugs in trait possessions -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/TraitDef/degreeDatas/li/possessions/WakeUp</xpath>
+    <value><FCP_Chem_Mentats>5~10</FCP_Chem_Mentats></value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/TraitDef/degreeDatas/li/possessions/Penoxycyline</xpath>
+    <value><FCP_Chem_Stimpak>5~10</FCP_Chem_Stimpak></value>
+  </Operation>
+</Patch>

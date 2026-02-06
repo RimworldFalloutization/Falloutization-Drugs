@@ -24,6 +24,7 @@
         <li>Rick.FCP.Core.Tools</li>
 		<li>Rick.FCP.Chems</li>
         <li>Rick.FCP.GreatKhans</li>
+        <li>Rick.FCP.Raiders</li>
     </loadAfter>
     <modVersion>1.0</modVersion>
 </ModMetaData>
