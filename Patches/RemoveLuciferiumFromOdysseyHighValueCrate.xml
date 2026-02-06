@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch MayRequire="Ludeon.RimWorld.Odyssey">
+  <!-- Remove Luciferium option from Odyssey high-value crate loot -->
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/ThingSetMakerDef[defName='MapGen_HighValueCrate']/root/options/li[thingSetMaker/fixedParams/filter/thingDefs/li='Luciferium']</xpath>
+  </Operation>
+</Patch>
