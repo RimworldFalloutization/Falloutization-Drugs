@@ -16,12 +16,12 @@
   </Operation>
 
   <!-- Remove Drug Production prerequisite from FCP Chem Production -->
-  <Operation Class="PatchOperationRemove">
+  <Operation Class="PatchOperationRemove" MayRequire="Rick.FCP.Core.Tools">
     <xpath>Defs/ResearchProjectDef[defName='FCP_Research_Chem_Production']/prerequisites/li[.='DrugProduction']</xpath>
   </Operation>
 
   <!-- Replace Drug Production prerequisite for Medicine Production with FCP Medicinal Drugs -->
-  <Operation Class="PatchOperationReplace">
+  <Operation Class="PatchOperationReplace" MayRequire="Rick.FCP.Core.Tools">
     <xpath>Defs/ResearchProjectDef[defName='MedicineProduction']/prerequisites/li[.='DrugProduction']</xpath>
     <value>
       <li>FCP_Research_Medicinal_Drugs</li>
@@ -29,7 +29,7 @@
   </Operation>
 
   <!-- Move vanilla industrial medicine crafting to FCP Chemistry Workbench -->
-  <Operation Class="PatchOperationReplace">
+  <Operation Class="PatchOperationReplace" MayRequire="Rick.FCP.Core.Tools">
     <xpath>Defs/ThingDef[defName='MedicineIndustrial']/recipeMaker/recipeUsers</xpath>
     <value>
       <recipeUsers>
@@ -39,7 +39,7 @@
   </Operation>
 
   <!-- Make Chemistry Workbench like being in a Laboratory room -->
-  <Operation Class="PatchOperationAdd">
+  <Operation Class="PatchOperationAdd" MayRequire="Rick.FCP.Core.Tools">
     <xpath>Defs/ThingDef[defName='FCP_Production_Chemistry_Workbench']/building</xpath>
     <value>
       <workTableRoomRole>Laboratory</workTableRoomRole>
@@ -55,18 +55,33 @@
     </value>
   </Operation>
 
-  <!-- Make buildings unbuildable -->
-  <Operation Class="XmlExtensions.ApplyPatch">
-      <patchName>Falloutization_Equipment_Remove_Building_Drugs</patchName>
-      <arguments>
-          <li>Defs/ThingDef[defName='DrugLab']</li>
-      </arguments>
+  <!-- Make Drug Lab unbuildable -->
+  <Operation Class="PatchOperationReplace" MayRequire="Rick.FCP.Core.Tools">
+    <xpath>Defs/ThingDef[defName='DrugLab']/designationCategory</xpath>
+    <value>
+      <designationCategory IsNull="True"/>
+    </value>
   </Operation>
 
-  <Operation Class="XmlExtensions.ApplyPatch" MayRequire="VanillaExpanded.VFEProduction">
-      <patchName>Falloutization_Equipment_Remove_Building_Drugs</patchName>
-      <arguments>
-          <li>Defs/ThingDef[defName='VFE_TableDrugLabElectric']</li>
-      </arguments>
+  <Operation Class="PatchOperationAdd" MayRequire="Rick.FCP.Core.Tools">
+    <xpath>Defs/ThingDef[defName='DrugLab']/building</xpath>
+    <value>
+      <neverBuildable>true</neverBuildable>
+    </value>
+  </Operation>
+
+  <!-- Make Electric Drug Lab unbuildable -->
+  <Operation Class="PatchOperationReplace" MayRequire="VanillaExpanded.VFEProduction">
+    <xpath>Defs/ThingDef[defName='VFE_TableDrugLabElectric']/designationCategory</xpath>
+    <value>
+      <designationCategory IsNull="True"/>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd" MayRequire="VanillaExpanded.VFEProduction">
+    <xpath>Defs/ThingDef[defName='VFE_TableDrugLabElectric']/building</xpath>
+    <value>
+      <neverBuildable>true</neverBuildable>
+    </value>
   </Operation>
 </Patch>

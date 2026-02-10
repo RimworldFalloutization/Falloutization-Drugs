@@ -9,11 +9,6 @@
     </supportedVersions>
     <modDependencies>
         <li>
-            <packageId>imranfish.xmlextensions</packageId>
-            <displayName>XML Extensions</displayName>
-            <downloadUrl>https://github.com/15adhami/XmlExtensions/releases</downloadUrl>
-        </li>
-        <li>
             <packageId>Rick.FCP.Core.Tools</packageId>
             <displayName>FCP - Tools</displayName>
             <downloadUrl>https://github.com/FalloutCollaborationProject/FCP-Tools</downloadUrl>
@@ -31,13 +26,11 @@
 		<li>Ludeon.RimWorld.Odyssey</li>
 		<li>Ludeon.RimWorld.Biotech</li>
 		<li>Ludeon.RimWorld.Anomaly</li>
-        <li>imranfish.xmlextensions</li>
         <li>Rick.FCP.Core.Tools</li>
 		<li>Rick.FCP.Chems</li>
         <li>VanillaExpanded.VFEProduction</li>
         <li>Rick.FCP.GreatKhans</li>
         <li>Rick.FCP.Raiders</li>
-        <li>Falloutization.Equipment</li>
     </loadAfter>
     <modVersion>1.0</modVersion>
 </ModMetaData>
