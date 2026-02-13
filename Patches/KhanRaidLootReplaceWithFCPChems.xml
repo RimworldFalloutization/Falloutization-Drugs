@@ -1,33 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch MayRequire="Rick.FCP.GreatKhans">
   <!-- Remove vanilla drugs from Great Khans raid loot -->
-  <Operation Class="PatchOperationRemove">
-    <xpath>Defs/ThingSetMakerDef[defName='FCP_KhanRaidLootMaker']/root/fixedParams/filter/thingDefs/li[.='Yayo']</xpath>
-  </Operation>
-  <Operation Class="PatchOperationRemove">
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>FCP - Great Khans</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+    <operations>
+    <li Class="PatchOperationRemove">
+      <xpath>Defs/ThingSetMakerDef[defName='FCP_KhanRaidLootMaker']/root/fixedParams/filter/thingDefs/li[.='Yayo']</xpath>
+    </li>
+    <li Class="PatchOperationRemove">
     <xpath>Defs/ThingSetMakerDef[defName='FCP_KhanRaidLootMaker']/root/fixedParams/filter/thingDefs/li[.='Flake']</xpath>
-  </Operation>
-  <Operation Class="PatchOperationRemove">
+    </li>
+    <li Class="PatchOperationRemove">
     <xpath>Defs/ThingSetMakerDef[defName='FCP_KhanRaidLootMaker']/root/fixedParams/filter/thingDefs/li[.='WakeUp']</xpath>
-  </Operation>
-  <!-- Add all FCP chems to Great Khans raid loot -->
-  <Operation Class="PatchOperationAdd">
-    <xpath>Defs/ThingSetMakerDef[defName='FCP_KhanRaidLootMaker']/root/fixedParams/filter/thingDefs</xpath>
-    <value>
-      <li>FCP_Chem_Healing_Powder</li>
-      <li>FCP_Chem_Jet</li>
-      <li>FCP_Chem_Psycho</li>
-      <li>FCP_Chem_Mentats</li>
-      <li>FCP_Chem_Turbo</li>
-      <li>FCP_Chem_Slasher</li>
-      <li>FCP_Chem_Steady</li>
-      <li>FCP_Chem_Cateye</li>
-      <li>FCP_Chem_Rocket</li>
-      <li>FCP_Chem_Berry_Mentats</li>
-      <li>FCP_Chem_Grape_Mentats</li>
-      <li>FCP_Chem_Orange_Mentats</li>
-      <li>FCP_Chem_Party_Time_Mentats</li>
-      <li>FCP_Chem_Dixons_Jet</li>
-    </value>
+    </li>
+    <!-- Add all FCP chems to Great Khans raid loot -->
+    <li Class="PatchOperationAdd">
+      <xpath>Defs/ThingSetMakerDef[defName='FCP_KhanRaidLootMaker']/root/fixedParams/filter/thingDefs</xpath>
+      <value>
+        <li>FCP_Chem_Healing_Powder</li>
+        <li>FCP_Chem_Jet</li>
+        <li>FCP_Chem_Psycho</li>
+        <li>FCP_Chem_Mentats</li>
+        <li>FCP_Chem_Turbo</li>
+        <li>FCP_Chem_Slasher</li>
+        <li>FCP_Chem_Steady</li>
+        <li>FCP_Chem_Cateye</li>
+        <li>FCP_Chem_Rocket</li>
+        <li>FCP_Chem_Berry_Mentats</li>
+        <li>FCP_Chem_Grape_Mentats</li>
+        <li>FCP_Chem_Orange_Mentats</li>
+        <li>FCP_Chem_Party_Time_Mentats</li>
+        <li>FCP_Chem_Dixons_Jet</li>
+      </value>
+    </li>
+    </operations>
+    </match>
   </Operation>
 </Patch>

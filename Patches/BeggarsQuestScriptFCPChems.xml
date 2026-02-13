@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Patch MayRequire="Ludeon.RimWorld.Ideology;Rick.FCP.Chems">
-  <!-- Beggars ask for Radaway instead of Penoxycyline -->
-  <Operation Class="PatchOperationAdd">
-    <xpath>Defs/QuestScriptDef[defName='Beggars']/questDescriptionRules/rulesStrings</xpath>
-    <value>
-        <li>claimInfo(beggarCount==1,requestedThingDefName==FCP_Chem_Radaway)->[beggars0_nameDef] needs [requestedThing_label] to save an irradiated friend</li>
-        <li>claimInfo(beggarCount>=2,requestedThingDefName==FCP_Chem_Radaway)->They want [requestedThing_label] so they can travel safely while looking for a new place to call home</li>
-    </value>
-  </Operation>
-
-  <!-- Caps instead of Silver -->
-  <Operation Class="PatchOperationAdd">
-    <xpath>Defs/QuestScriptDef[defName='Beggars']/questDescriptionRules/rulesStrings</xpath>
-    <value>
-        <li>claimInfo(beggarCount==1,requestedThingDefName==FCP_Currency_Caps)->[beggars0_nameDef] wants the caps to pay off a debt to a gang of raiders who are hunting [beggars0_objective]</li>
-        <li>claimInfo(beggarCount==1,requestedThingDefName==FCP_Currency_Caps,childCount==1,priority=1)->[beggars0_nameDef] wants the caps to help buy the freedom of [beggars0_possessive] big sister who was enslaved by slavers</li>
-        <li>claimInfo(beggarCount>=2,requestedThingDefName==FCP_Currency_Caps)->They want the caps so they can buy back a friend who was recently kidnapped</li>
-    </value>
+<Patch>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Ideology</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+    <operations>
+    <li Class="PatchOperationAdd">
+    <!-- Beggars ask for Radaway instead of Penoxycyline -->
+      <xpath>Defs/QuestScriptDef[defName='Beggars']/questDescriptionRules/rulesStrings</xpath>
+      <value>
+          <li>claimInfo(beggarCount==1,requestedThingDefName==FCP_Chem_Radaway)->[beggars0_nameDef] needs [requestedThing_label] to save an irradiated friend</li>
+          <li>claimInfo(beggarCount>=2,requestedThingDefName==FCP_Chem_Radaway)->They want [requestedThing_label] so they can travel safely while looking for a new place to call home</li>
+      </value>
+    </li>
+    <li Class="PatchOperationAdd">
+      <xpath>Defs/QuestScriptDef[defName='Beggars']/questDescriptionRules/rulesStrings</xpath>
+      <value>
+          <li>claimInfo(beggarCount==1,requestedThingDefName==FCP_Currency_Caps)->[beggars0_nameDef] wants the caps to pay off a debt to a gang of raiders who are hunting [beggars0_objective]</li>
+          <li>claimInfo(beggarCount==1,requestedThingDefName==FCP_Currency_Caps,childCount==1,priority=1)->[beggars0_nameDef] wants the caps to help buy the freedom of [beggars0_possessive] big sister who was enslaved by slavers</li>
+          <li>claimInfo(beggarCount>=2,requestedThingDefName==FCP_Currency_Caps)->They want the caps so they can buy back a friend who was recently kidnapped</li>
+      </value>
+    </li>
+    </operations>
+    </match>
   </Operation>
 </Patch>

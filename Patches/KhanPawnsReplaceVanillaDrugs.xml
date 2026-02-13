@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Patch MayRequire="Rick.FCP.GreatKhans">
+<Patch>
   <!-- In Great Khan pawn kinds only: replace Psychite Tea with Smokeleaf Joint, Go Juice with Jet -->
-  <Operation Class="PatchOperationReplace">
-    <xpath>Defs/PawnKindDef[contains(defName,'Khan')]//thingDef[.='PsychiteTea']</xpath>
-    <value><thingDef>SmokeleafJoint</thingDef></value>
-  </Operation>
-  <Operation Class="PatchOperationReplace">
-    <xpath>Defs/PawnKindDef[contains(defName,'Khan')]//thingDef[.='GoJuice']</xpath>
-    <value><thingDef>FCP_Chem_Jet</thingDef></value>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>FCP - Great Khans</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+    <operations>
+    <li Class="PatchOperationReplace">
+      <xpath>Defs/PawnKindDef[contains(defName,'Khan')]//thingDef[.='PsychiteTea']</xpath>
+      <value><thingDef>SmokeleafJoint</thingDef></value>
+    </li>
+    <li Class="PatchOperationReplace">
+      <xpath>Defs/PawnKindDef[contains(defName,'Khan')]//thingDef[.='GoJuice']</xpath>
+      <value><thingDef>FCP_Chem_Jet</thingDef></value>
+    </li>
+    </operations>
+    </match>
   </Operation>
 </Patch>

@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Patch MayRequire="Ludeon.RimWorld.Odyssey">
+<Patch>
   <!-- Remove specified drugs from ancient sealed container loot.. -->
-  <Operation Class="PatchOperationRemove">
-    <xpath>Defs/ThingSetMakerDef[defName='Reward_MalfunctioningTransportPod']/root/options/li[thingSetMaker/fixedParams/filter/thingDefs/li='Luciferium']/thingSetMaker/fixedParams/filter/thingDefs/li[.='Luciferium']</xpath>
-  </Operation>
-  <Operation Class="PatchOperationRemove">
-    <xpath>Defs/ThingSetMakerDef[defName='Reward_MalfunctioningTransportPod']/root/options/li[thingSetMaker/fixedParams/filter/thingDefs/li='Ambrosia']/thingSetMaker/fixedParams/filter/thingDefs/li[.='Ambrosia']</xpath>
-  </Operation>
-  <Operation Class="PatchOperationRemove">
-    <xpath>Defs/ThingSetMakerDef[defName='Reward_MalfunctioningTransportPod']/root/options/li[thingSetMaker/fixedParams/filter/thingDefs/li='GoJuice']/thingSetMaker/fixedParams/filter/thingDefs/li[.='GoJuice']</xpath>
-  </Operation>
-  <Operation Class="PatchOperationRemove">
-    <xpath>Defs/ThingSetMakerDef[defName='Reward_MalfunctioningTransportPod']/root/options/li[thingSetMaker/fixedParams/filter/thingDefs/li='Flake']/thingSetMaker/fixedParams/filter/thingDefs/li[.='Flake']</xpath>
-  </Operation>
-  <Operation Class="PatchOperationRemove">
-    <xpath>Defs/ThingSetMakerDef[defName='Reward_MalfunctioningTransportPod']/root/options/li[thingSetMaker/fixedParams/filter/thingDefs/li='Yayo']/thingSetMaker/fixedParams/filter/thingDefs/li[.='Yayo']</xpath>
-  </Operation>
-  <Operation Class="PatchOperationRemove">
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Odyssey</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+    <operations>
+    <li Class="PatchOperationRemove">
+      <xpath>Defs/ThingSetMakerDef[defName='Reward_MalfunctioningTransportPod']/root/options/li[thingSetMaker/fixedParams/filter/thingDefs/li='Luciferium']/thingSetMaker/fixedParams/filter/thingDefs/li[.='Luciferium']</xpath>
+    </li>
+    <li Class="PatchOperationRemove">
+      <xpath>Defs/ThingSetMakerDef[defName='Reward_MalfunctioningTransportPod']/root/options/li[thingSetMaker/fixedParams/filter/thingDefs/li='Ambrosia']/thingSetMaker/fixedParams/filter/thingDefs/li[.='Ambrosia']</xpath>
+    </li>
+    <li Class="PatchOperationRemove">
+      <xpath>Defs/ThingSetMakerDef[defName='Reward_MalfunctioningTransportPod']/root/options/li[thingSetMaker/fixedParams/filter/thingDefs/li='GoJuice']/thingSetMaker/fixedParams/filter/thingDefs/li[.='GoJuice']</xpath>
+    </li>
+    <li Class="PatchOperationRemove">
+      <xpath>Defs/ThingSetMakerDef[defName='Reward_MalfunctioningTransportPod']/root/options/li[thingSetMaker/fixedParams/filter/thingDefs/li='Flake']/thingSetMaker/fixedParams/filter/thingDefs/li[.='Flake']</xpath>
+    </li>
+    <li Class="PatchOperationRemove">
+      <xpath>Defs/ThingSetMakerDef[defName='Reward_MalfunctioningTransportPod']/root/options/li[thingSetMaker/fixedParams/filter/thingDefs/li='Yayo']/thingSetMaker/fixedParams/filter/thingDefs/li[.='Yayo']</xpath>
+    </li>
+    <li Class="PatchOperationRemove">
     <xpath>Defs/ThingSetMakerDef[defName='Reward_MalfunctioningTransportPod']/root/options/li[thingSetMaker/fixedParams/filter/thingDefs/li='WakeUp']/thingSetMaker/fixedParams/filter/thingDefs/li[.='WakeUp']</xpath>
+    </li>
+    </operations>
+    </match>
   </Operation>
 </Patch>

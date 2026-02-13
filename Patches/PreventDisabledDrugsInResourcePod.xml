@@ -33,8 +33,13 @@
     <xpath>Defs/ThingDef[defName='Ambrosia']</xpath>
     <value><preventSpawningInResourcePod>true</preventSpawningInResourcePod></value>
   </Operation>
-  <Operation Class="PatchOperationAdd" MayRequire="Ludeon.RimWorld.Odyssey">
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Odyssey</li>
+    </mods>
+    <match Class="PatchOperationAdd">
     <xpath>Defs/ThingDef[defName='Drug_Psilocap']</xpath>
     <value><preventSpawningInResourcePod>true</preventSpawningInResourcePod></value>
+    </match>
   </Operation>
 </Patch>

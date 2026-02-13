@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Patch MayRequire="Rick.FCP.Ghouls">
+<Patch>
   <!-- Replace vanilla drugs in FCP_Gene_Ferality with FCP stimpaks, Jet variants, Psycho, Buffout and mixes (Jet/Psycho as components) -->
-  <Operation Class="PatchOperationReplace">
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>FCP - Ghouls</li>
+    </mods>
+    <match Class="PatchOperationReplace">
     <xpath>Defs/GeneDef[defName='FCP_Gene_Ferality']/modExtensions/li[@Class='FCP.Core.Ghouls.FeralityGene_ModExtension']/drugs</xpath>
     <value>
       <drugs>
@@ -22,5 +26,6 @@
         <li>FCP_Chem_Buffout</li>
       </drugs>
     </value>
+    </match>
   </Operation>
 </Patch>

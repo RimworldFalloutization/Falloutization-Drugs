@@ -11,17 +11,22 @@
   </Operation>
 
   <!-- Remove Drug Production prerequisite from VFE Electric Drug Lab -->
-  <Operation Class="PatchOperationRemove" MayRequire="VanillaExpanded.VFEProduction">
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Vanilla Furniture Expanded - Production</li>
+    </mods>
+    <match Class="PatchOperationRemove">
     <xpath>Defs/ThingDef[defName='VFE_TableDrugLabElectric']/researchPrerequisites/li[.='DrugProduction']</xpath>
+    </match>
   </Operation>
 
   <!-- Remove Drug Production prerequisite from FCP Chem Production -->
-  <Operation Class="PatchOperationRemove" MayRequire="Rick.FCP.Core.Tools">
+  <Operation Class="PatchOperationRemove">
     <xpath>Defs/ResearchProjectDef[defName='FCP_Research_Chem_Production']/prerequisites/li[.='DrugProduction']</xpath>
   </Operation>
 
   <!-- Replace Drug Production prerequisite for Medicine Production with FCP Medicinal Drugs -->
-  <Operation Class="PatchOperationReplace" MayRequire="Rick.FCP.Core.Tools">
+  <Operation Class="PatchOperationReplace">
     <xpath>Defs/ResearchProjectDef[defName='MedicineProduction']/prerequisites/li[.='DrugProduction']</xpath>
     <value>
       <li>FCP_Research_Medicinal_Drugs</li>
@@ -29,7 +34,7 @@
   </Operation>
 
   <!-- Move vanilla industrial medicine crafting to FCP Chemistry Workbench -->
-  <Operation Class="PatchOperationReplace" MayRequire="Rick.FCP.Core.Tools">
+  <Operation Class="PatchOperationReplace">
     <xpath>Defs/ThingDef[defName='MedicineIndustrial']/recipeMaker/recipeUsers</xpath>
     <value>
       <recipeUsers>
@@ -48,11 +53,16 @@
   </Operation>
 
   <!-- Make VFE Drug Cabinet boost FCP Chemistry Workbench -->
-  <Operation Class="PatchOperationAdd" MayRequire="VanillaExpanded.VFEProduction">
-    <xpath>Defs/ThingDef[defName='FCP_Production_Chemistry_Workbench']/comps/li[@Class='CompProperties_AffectedByFacilities']/linkableFacilities</xpath>
-    <value>
-      <li>VFE_DrugCabinet</li>
-    </value>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Vanilla Furniture Expanded - Production</li>
+    </mods>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName='FCP_Production_Chemistry_Workbench']/comps/li[@Class='CompProperties_AffectedByFacilities']/linkableFacilities</xpath>
+      <value>
+        <li>VFE_DrugCabinet</li>
+      </value>
+    </match>
   </Operation>
 
   <!-- Make Drug Lab unbuildable -->
@@ -71,17 +81,25 @@
   </Operation>
 
   <!-- Make Electric Drug Lab unbuildable -->
-  <Operation Class="PatchOperationReplace" MayRequire="VanillaExpanded.VFEProduction">
+    <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Vanilla Furniture Expanded - Production</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+    <operations>
+    <li Class="PatchOperationReplace">
     <xpath>Defs/ThingDef[defName='VFE_TableDrugLabElectric']/designationCategory</xpath>
     <value>
       <designationCategory IsNull="True"/>
     </value>
-  </Operation>
-
-  <Operation Class="PatchOperationAdd" MayRequire="VanillaExpanded.VFEProduction">
+    </li>
+    <li Class="PatchOperationAdd">
     <xpath>Defs/ThingDef[defName='VFE_TableDrugLabElectric']/building</xpath>
     <value>
       <neverBuildable>true</neverBuildable>
     </value>
+    </li>
+    </operations>
+    </match>
   </Operation>
 </Patch>
