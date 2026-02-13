@@ -1,36 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Patch MayRequire="Rick.FCP.GreatKhans">
+<Patch>
   <!-- Remove vanilla drugs we've disabled from Great Khan Chem Dealer stock (caravan and base) -->
   <!-- Caravan: FCP_Caravan_Khan_Chem_Dealer -->
-  <Operation Class="PatchOperationRemove">
-    <xpath>Defs/TraderKindDef[defName="FCP_Caravan_Khan_Chem_Dealer"]/stockGenerators/li[thingDef="PsychiteTea"]</xpath>
-  </Operation>
-  <Operation Class="PatchOperationRemove">
-    <xpath>Defs/TraderKindDef[defName="FCP_Caravan_Khan_Chem_Dealer"]/stockGenerators/li[thingDef="Yayo"]</xpath>
-  </Operation>
-  <Operation Class="PatchOperationRemove">
-    <xpath>Defs/TraderKindDef[defName="FCP_Caravan_Khan_Chem_Dealer"]/stockGenerators/li[thingDef="Flake"]</xpath>
-  </Operation>
-  <Operation Class="PatchOperationRemove">
-    <xpath>Defs/TraderKindDef[defName="FCP_Caravan_Khan_Chem_Dealer"]/stockGenerators/li[thingDef="GoJuice"]</xpath>
-  </Operation>
-  <Operation Class="PatchOperationRemove">
-    <xpath>Defs/TraderKindDef[defName="FCP_Caravan_Khan_Chem_Dealer"]/stockGenerators/li[thingDef="WakeUp"]</xpath>
-  </Operation>
-  <!-- Base: FCP_Base_Khan_Chem_Dealer -->
-  <Operation Class="PatchOperationRemove">
-    <xpath>Defs/TraderKindDef[defName="FCP_Base_Khan_Chem_Dealer"]/stockGenerators/li[thingDef="PsychiteTea"]</xpath>
-  </Operation>
-  <Operation Class="PatchOperationRemove">
-    <xpath>Defs/TraderKindDef[defName="FCP_Base_Khan_Chem_Dealer"]/stockGenerators/li[thingDef="Yayo"]</xpath>
-  </Operation>
-  <Operation Class="PatchOperationRemove">
-    <xpath>Defs/TraderKindDef[defName="FCP_Base_Khan_Chem_Dealer"]/stockGenerators/li[thingDef="Flake"]</xpath>
-  </Operation>
-  <Operation Class="PatchOperationRemove">
-    <xpath>Defs/TraderKindDef[defName="FCP_Base_Khan_Chem_Dealer"]/stockGenerators/li[thingDef="GoJuice"]</xpath>
-  </Operation>
-  <Operation Class="PatchOperationRemove">
-    <xpath>Defs/TraderKindDef[defName="FCP_Base_Khan_Chem_Dealer"]/stockGenerators/li[thingDef="WakeUp"]</xpath>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>FCP - Great Khans</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+    <operations>
+    <li Class="PatchOperationRemove">
+      <xpath>Defs/TraderKindDef[defName="FCP_Caravan_Khan_Chem_Dealer"]/stockGenerators/li[thingDef="PsychiteTea"]</xpath>
+    </li>
+    <li Class="PatchOperationRemove">
+      <xpath>Defs/TraderKindDef[defName="FCP_Caravan_Khan_Chem_Dealer"]/stockGenerators/li[thingDef="Yayo"]</xpath>
+    </li>
+    <li Class="PatchOperationRemove">
+      <xpath>Defs/TraderKindDef[defName="FCP_Caravan_Khan_Chem_Dealer"]/stockGenerators/li[thingDef="Flake"]</xpath>
+    </li>
+    <li Class="PatchOperationRemove">
+      <xpath>Defs/TraderKindDef[defName="FCP_Caravan_Khan_Chem_Dealer"]/stockGenerators/li[thingDef="GoJuice"]</xpath>
+    </li>
+    <li Class="PatchOperationRemove">
+      <xpath>Defs/TraderKindDef[defName="FCP_Caravan_Khan_Chem_Dealer"]/stockGenerators/li[thingDef="WakeUp"]</xpath>
+    </li>
+    <!-- Base: FCP_Base_Khan_Chem_Dealer -->
+    <li Class="PatchOperationRemove">
+      <xpath>Defs/TraderKindDef[defName="FCP_Base_Khan_Chem_Dealer"]/stockGenerators/li[thingDef="PsychiteTea"]</xpath>
+    </li>
+    <li Class="PatchOperationRemove">
+      <xpath>Defs/TraderKindDef[defName="FCP_Base_Khan_Chem_Dealer"]/stockGenerators/li[thingDef="Yayo"]</xpath>
+    </li>
+    <li Class="PatchOperationRemove">
+      <xpath>Defs/TraderKindDef[defName="FCP_Base_Khan_Chem_Dealer"]/stockGenerators/li[thingDef="Flake"]</xpath>
+    </li>
+    <li Class="PatchOperationRemove">
+      <xpath>Defs/TraderKindDef[defName="FCP_Base_Khan_Chem_Dealer"]/stockGenerators/li[thingDef="GoJuice"]</xpath>
+    </li>
+    <li Class="PatchOperationRemove">
+      <xpath>Defs/TraderKindDef[defName="FCP_Base_Khan_Chem_Dealer"]/stockGenerators/li[thingDef="WakeUp"]</xpath>
+    </li>
+    </operations>
+    </match>
   </Operation>
 </Patch>
