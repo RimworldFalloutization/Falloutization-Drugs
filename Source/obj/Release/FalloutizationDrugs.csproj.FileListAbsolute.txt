@@ -1,6 +1,0 @@
-/home/milosrasic/.local/share/Steam/steamapps/common/RimWorld/Mods/Falloutization-Drugs/1.6/Assemblies/FalloutizationDrugs.dll
-/home/milosrasic/.local/share/Steam/steamapps/common/RimWorld/Mods/Falloutization-Drugs/Source/obj/Release/FalloutizationDrugs.csproj.AssemblyReference.cache
-/home/milosrasic/.local/share/Steam/steamapps/common/RimWorld/Mods/Falloutization-Drugs/Source/obj/Release/FalloutizationDrugs.GeneratedMSBuildEditorConfig.editorconfig
-/home/milosrasic/.local/share/Steam/steamapps/common/RimWorld/Mods/Falloutization-Drugs/Source/obj/Release/FalloutizationDrugs.csproj.CoreCompileInputs.cache
-/home/milosrasic/.local/share/Steam/steamapps/common/RimWorld/Mods/Falloutization-Drugs/Source/obj/Release/Fallouti.A92E121F.Up2Date
-/home/milosrasic/.local/share/Steam/steamapps/common/RimWorld/Mods/Falloutization-Drugs/Source/obj/Release/FalloutizationDrugs.dll
