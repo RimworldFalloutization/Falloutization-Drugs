@@ -29,6 +29,7 @@
         <li>Rick.FCP.Core.Tools</li>
 		<li>Rick.FCP.Chems</li>
         <li>VanillaExpanded.VFEProduction</li>
+        <li>OskarPotocki.VFE.Medieval2</li>
         <li>Rick.FCP.GreatKhans</li>
         <li>Rick.FCP.Raiders</li>
     </loadAfter>

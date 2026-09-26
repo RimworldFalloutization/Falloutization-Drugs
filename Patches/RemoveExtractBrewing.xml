@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch MayRequire="OskarPotocki.VFE.Medieval2">
+  <!-- VFEM2_Alchemy is labeled "extract brewing" by FIP HHTools.
+       Alchemy plants / harvest products are handled by Falloutization-Plants DisableVEPlants;
+       this file covers research, labs, draughts, and Glowstool (not in Plants). -->
+
+  <!-- Remove Extract brewing from all prerequisites before deleting the research -->
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs//prerequisites/li[.="VFEM2_Alchemy"]</xpath>
+  </Operation>
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs//researchPrerequisites/li[.="VFEM2_Alchemy"]</xpath>
+  </Operation>
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs//researchPrerequisite[.="VFEM2_Alchemy"]</xpath>
+  </Operation>
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs//sowResearchPrerequisites/li[.="VFEM2_Alchemy"]</xpath>
+  </Operation>
+
+  <!-- Remove Extract brewing research -->
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/ResearchProjectDef[defName="VFEM2_Alchemy"]</xpath>
+  </Operation>
+
+  <!-- Disable extract labs (same approach as Drug Lab) -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="VFEM2_AlchemicalWorkbench"]/designationCategory</xpath>
+    <value>
+      <designationCategory IsNull="True"/>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="VFEM2_AlchemicalWorkbench"]/building</xpath>
+    <value>
+      <neverBuildable>true</neverBuildable>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/ThingDef[defName="VFEM2_AlchemicalWorkbench"]/researchPrerequisites</xpath>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="VFEM2_AlchemicalWorkbench_Electric"]/designationCategory</xpath>
+    <value>
+      <designationCategory IsNull="True"/>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="VFEM2_AlchemicalWorkbench_Electric"]/building</xpath>
+    <value>
+      <neverBuildable>true</neverBuildable>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/ThingDef[defName="VFEM2_AlchemicalWorkbench_Electric"]/researchPrerequisites</xpath>
+  </Operation>
+
+  <!-- Disable draught / extract products (same approach as vanilla drugs) -->
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/ThingDef[@Name="VFEM2_DraughtBase"]/recipeMaker</xpath>
+  </Operation>
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/ThingDef[starts-with(defName,"VFEM2_") and contains(defName,"Draught")]/recipeMaker</xpath>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[@Name="VFEM2_DraughtBase"]/thingCategories</xpath>
+    <value>
+      <thingCategories Inherit="False" />
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/ThingDef[@Name="VFEM2_DraughtBase"]/thingSetMakerTags</xpath>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[starts-with(defName,"VFEM2_") and contains(defName,"Draught")]</xpath>
+    <value>
+      <preventSpawningInResourcePod>true</preventSpawningInResourcePod>
+    </value>
+  </Operation>
+
+  <!-- Glowstool + prevent alchemy harvest products from resource pods (plants themselves are in Falloutization-Plants) -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="VFEM2_RawGlowstool"]</xpath>
+    <value>
+      <thingCategories Inherit="False" />
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="VFEM2_AstragalusFlowers" or defName="VFEM2_RafflesiaLeaves" or defName="VFEM2_CliviaPetals" or defName="VFEM2_AlocasiaLeaves" or defName="VFEM2_RawGlowstool"]</xpath>
+    <value>
+      <preventSpawningInResourcePod>true</preventSpawningInResourcePod>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Glowstool"]/plant/sowTags</xpath>
+    <value>
+      <sowTags />
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/ThingDef[defName="Glowstool"]/plant/sowResearchPrerequisites</xpath>
+  </Operation>
+</Patch>

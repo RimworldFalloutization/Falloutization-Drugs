@@ -27,3 +27,4 @@
 - Drug Production research project and Drug Lab building
 - Vanilla Furniture Expanded Electric Drug Lab
 - Penoxycyline
+- VFE Medieval 2 Extract brewing (alchemy): research, extract labs, draughts/extracts, and alchemy plants/ingredients
