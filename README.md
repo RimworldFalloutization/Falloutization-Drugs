@@ -2,7 +2,6 @@
 
 ## Changes
 
-- Beggars ask for caps instead of silver
 - Pawns that spawn with combat-enhancing drugs will now get Fallout chems instead of Yayo or Go-Juice
 - Ghoul fertility gene now affects Fallout chems
 - Khan raid loot will now contain Fallout chems instead of vanilla drugs
