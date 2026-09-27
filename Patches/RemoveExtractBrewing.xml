@@ -6,9 +6,6 @@
 
   <!-- Remove Extract brewing from all prerequisites before deleting the research -->
   <Operation Class="PatchOperationRemove">
-    <xpath>Defs//prerequisites/li[.="VFEM2_Alchemy"]</xpath>
-  </Operation>
-  <Operation Class="PatchOperationRemove">
     <xpath>Defs//researchPrerequisites/li[.="VFEM2_Alchemy"]</xpath>
   </Operation>
   <Operation Class="PatchOperationRemove">
