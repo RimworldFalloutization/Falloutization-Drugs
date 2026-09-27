@@ -53,25 +53,58 @@
     <xpath>Defs/ThingDef[defName="VFEM2_AlchemicalWorkbench_Electric"]/researchPrerequisites</xpath>
   </Operation>
 
-  <!-- Disable draught / extract products (same approach as vanilla drugs) -->
+  <!-- Disable draught / extract products.
+       Parent-only tag removal is not enough: camp stockpiles (MapGen_DefaultStockpile /
+       ThingSetMaker_RandomGeneralGoods.RandomDrugs) and quest rewards still pick
+       VFEM2_InspirationDraught ("inspiration extract") via inherited Drugs category,
+       RewardStandardLowFreq, Serum trade tag, and IsDrug (drugCategory Medical). -->
   <Operation Class="PatchOperationRemove">
     <xpath>Defs/ThingDef[@Name="VFEM2_DraughtBase"]/recipeMaker</xpath>
   </Operation>
   <Operation Class="PatchOperationRemove">
     <xpath>Defs/ThingDef[starts-with(defName,"VFEM2_") and contains(defName,"Draught")]/recipeMaker</xpath>
   </Operation>
+
   <Operation Class="PatchOperationReplace">
     <xpath>Defs/ThingDef[@Name="VFEM2_DraughtBase"]/thingCategories</xpath>
     <value>
       <thingCategories Inherit="False" />
     </value>
   </Operation>
-  <Operation Class="PatchOperationRemove">
+  <Operation Class="PatchOperationReplace">
     <xpath>Defs/ThingDef[@Name="VFEM2_DraughtBase"]/thingSetMakerTags</xpath>
+    <value>
+      <thingSetMakerTags Inherit="False" />
+    </value>
   </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[@Name="VFEM2_DraughtBase"]/tradeTags</xpath>
+    <value>
+      <tradeTags Inherit="False" />
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[@Name="VFEM2_DraughtBase"]/ingestible/drugCategory</xpath>
+    <value>
+      <drugCategory>None</drugCategory>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[@Name="VFEM2_DraughtBase"]</xpath>
+    <value>
+      <tradeability>None</tradeability>
+    </value>
+  </Operation>
+
+  <!-- Children do not redeclare these fields; force empty overrides so they cannot
+       inherit Drugs / RewardStandardLowFreq / Serum after other mods patch the parent. -->
   <Operation Class="PatchOperationAdd">
     <xpath>Defs/ThingDef[starts-with(defName,"VFEM2_") and contains(defName,"Draught")]</xpath>
     <value>
+      <thingCategories Inherit="False" />
+      <thingSetMakerTags Inherit="False" />
+      <tradeTags Inherit="False" />
+      <tradeability>None</tradeability>
       <preventSpawningInResourcePod>true</preventSpawningInResourcePod>
     </value>
   </Operation>
