@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
+  <!-- Strip RewardStandardCore so Luciferium is not picked by Reward_ItemsStandard
+       (quest rewards, e.g. Hospitality_Joiners "A Guard needing help"). -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Luciferium"]/thingSetMakerTags</xpath>
+    <value>
+      <thingSetMakerTags />
+    </value>
+  </Operation>
+
   <!-- Replace Luciferium with X-Cell in Scarlands crate loot -->
   <Operation Class="PatchOperationReplace" MayRequire="Ludeon.RimWorld.Odyssey">
     <xpath>Defs/ThingSetMakerDef[defName='MapGen_ScarlandsHermeticCrate']/root/options/li[thingSetMaker/fixedParams/filter/thingDefs/li='Luciferium']/thingSetMaker/fixedParams/filter/thingDefs</xpath>

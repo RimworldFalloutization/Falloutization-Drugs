@@ -26,4 +26,8 @@
     <xpath>Defs/ThingDef[defName="Penoxycyline"]</xpath>
     <value><thingCategories /></value>
   </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="Luciferium"]</xpath>
+    <value><thingCategories /></value>
+  </Operation>
 </Patch>
