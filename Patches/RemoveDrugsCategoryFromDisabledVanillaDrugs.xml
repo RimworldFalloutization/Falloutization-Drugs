@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <!-- Remove Drugs thing category from disabled vanilla drugs so they don't appear in
-       StockGenerator_Category (e.g. Khan chem dealers) or other category-based lists -->
+  <!-- Strip Drugs category / trade / loot hooks from disabled vanilla drugs so they
+       don't appear in StockGenerator_Category, RandomDrugs, or similar lists. -->
   <Operation Class="PatchOperationAdd">
     <xpath>Defs/ThingDef[defName="PsychiteTea"]</xpath>
     <value><thingCategories /></value>
@@ -18,10 +18,28 @@
     <xpath>Defs/ThingDef[defName="WakeUp"]</xpath>
     <value><thingCategories /></value>
   </Operation>
+  <!-- GoJuice (Greenway: "distilled brahmin shrooms"): full disable like AUR/extract draughts.
+       Parent DrugBase still supplies Drugs category + tradeTags unless Inherit="False";
+       drugCategory Hard also keeps it in RandomDrugs / IsDrug loot pools. -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="GoJuice"]/ingestible/drugCategory</xpath>
+    <value>
+      <drugCategory>None</drugCategory>
+    </value>
+  </Operation>
   <Operation Class="PatchOperationAdd">
     <xpath>Defs/ThingDef[defName="GoJuice"]</xpath>
-    <value><thingCategories /></value>
+    <value>
+      <thingCategories Inherit="False" />
+      <tradeTags Inherit="False" />
+      <thingSetMakerTags Inherit="False" />
+      <tradeability>None</tradeability>
+    </value>
   </Operation>
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/ThingSetMakerDef[defName="PirateRaidLootMaker"]//thingDefs/li[.="GoJuice"]</xpath>
+  </Operation>
+
   <Operation Class="PatchOperationAdd">
     <xpath>Defs/ThingDef[defName="Penoxycyline"]</xpath>
     <value><thingCategories /></value>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch MayRequire="XMB.AncientUrbanrUins.MO">
+  <!-- Disable Ancient Urban Ruins drugs: medical injectors/kits, beers, and soft drinks.
+       Same approach as RemoveExtractBrewing draughts / vanilla drug removals: strip crafting,
+       categories, trade/loot tags, drug status, and resource-pod spawning. -->
+
+  <!-- Remove recipeMaker from craftable injectors -->
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/ThingDef[defName="AM_MetalbloodInjector" or defName="AM_AnalgesicRegenerationInjector" or defName="AM_CellRegenerationInjector"]/recipeMaker</xpath>
+  </Operation>
+
+  <!-- Medical drugs -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="AM_SurgicalBag" or defName="AM_BigSurgicalBag" or defName="AM_MetalbloodInjector" or defName="AM_AnalgesicRegenerationInjector" or defName="AM_CellRegenerationInjector" or defName="AM_EssentialBalm" or defName="AM_Ibuprofen" or defName="AM_Antibiotic"]/thingCategories</xpath>
+    <value>
+      <thingCategories Inherit="False" />
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="AM_SurgicalBag" or defName="AM_BigSurgicalBag" or defName="AM_MetalbloodInjector" or defName="AM_AnalgesicRegenerationInjector" or defName="AM_CellRegenerationInjector" or defName="AM_EssentialBalm" or defName="AM_Ibuprofen" or defName="AM_Antibiotic"]/tradeTags</xpath>
+    <value>
+      <tradeTags Inherit="False" />
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="AM_SurgicalBag" or defName="AM_BigSurgicalBag" or defName="AM_MetalbloodInjector" or defName="AM_AnalgesicRegenerationInjector" or defName="AM_CellRegenerationInjector" or defName="AM_EssentialBalm" or defName="AM_Ibuprofen" or defName="AM_Antibiotic"]/ingestible/drugCategory</xpath>
+    <value>
+      <drugCategory>None</drugCategory>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="AM_SurgicalBag" or defName="AM_BigSurgicalBag" or defName="AM_MetalbloodInjector" or defName="AM_AnalgesicRegenerationInjector" or defName="AM_CellRegenerationInjector" or defName="AM_EssentialBalm" or defName="AM_Ibuprofen" or defName="AM_Antibiotic"]</xpath>
+    <value>
+      <thingSetMakerTags Inherit="False" />
+      <tradeability>None</tradeability>
+      <preventSpawningInResourcePod>true</preventSpawningInResourcePod>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/ThingDef[defName="AM_MetalbloodInjector" or defName="AM_EssentialBalm" or defName="AM_Ibuprofen"]/comps/li[@Class="CompProperties_Drug"]/isCombatEnhancingDrug</xpath>
+  </Operation>
+
+  <!-- Beers (inherit Drugs category from DrugBase; override tradeTags locally) -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="AM_TsingtaoBeer" or defName="AM_Budweiser" or defName="AM_MilkBeer"]/tradeTags</xpath>
+    <value>
+      <tradeTags Inherit="False" />
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="AM_TsingtaoBeer" or defName="AM_Budweiser" or defName="AM_MilkBeer"]/ingestible/drugCategory</xpath>
+    <value>
+      <drugCategory>None</drugCategory>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="AM_TsingtaoBeer" or defName="AM_Budweiser" or defName="AM_MilkBeer"]</xpath>
+    <value>
+      <thingCategories Inherit="False" />
+      <thingSetMakerTags Inherit="False" />
+      <tradeability>None</tradeability>
+      <preventSpawningInResourcePod>true</preventSpawningInResourcePod>
+    </value>
+  </Operation>
+
+  <!-- Soft drinks: strip parent, then force empty overrides on children -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[@Name="AM_SoftDrinkResourceBase"]/thingCategories</xpath>
+    <value>
+      <thingCategories Inherit="False" />
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[@Name="AM_SoftDrinkResourceBase"]/tradeTags</xpath>
+    <value>
+      <tradeTags Inherit="False" />
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[@Name="AM_SoftDrinkResourceBase"]/ingestible/drugCategory</xpath>
+    <value>
+      <drugCategory>None</drugCategory>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[@Name="AM_SoftDrinkResourceBase"]</xpath>
+    <value>
+      <thingSetMakerTags Inherit="False" />
+      <tradeability>None</tradeability>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="AM_Coca" or defName="AM_Fanta" or defName="AM_Pepsi" or defName="AM_Sprite"]</xpath>
+    <value>
+      <thingCategories Inherit="False" />
+      <thingSetMakerTags Inherit="False" />
+      <tradeTags Inherit="False" />
+      <tradeability>None</tradeability>
+      <preventSpawningInResourcePod>true</preventSpawningInResourcePod>
+    </value>
+  </Operation>
+
+  <!-- Remove from AUR ThingSetMaker hardcoded lists -->
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/ThingSetMakerDef[defName="AM_MedicalSupplies"]/root/options/li[thingSetMaker/fixedParams/filter/thingDefs/li="AM_MetalbloodInjector"]</xpath>
+  </Operation>
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/ThingSetMakerDef[defName="AM_MedicalSupplies"]//thingDefs/li[.="AM_SurgicalBag" or .="AM_BigSurgicalBag" or .="AM_EssentialBalm" or .="AM_Ibuprofen" or .="AM_Antibiotic"]</xpath>
+  </Operation>
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/ThingSetMakerDef[defName="AM_Injector"]/root/options/li[thingSetMaker/fixedParams/filter/thingDefs/li="AM_MetalbloodInjector"]</xpath>
+  </Operation>
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/ThingSetMakerDef[defName="AM_Beverages"]//thingDefs/li[.="AM_Coca" or .="AM_Fanta" or .="AM_MilkBeer" or .="AM_Pepsi" or .="AM_Sprite" or .="AM_TsingtaoBeer" or .="AM_Budweiser"]</xpath>
+  </Operation>
+</Patch>
