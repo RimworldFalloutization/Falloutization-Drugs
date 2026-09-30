@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- Pawn generation picks a random ChemicalDef with canBeAddicted.
+       These chemicals belong to drugs this mod removes. Clearing the flag
+       keeps them out of that roll. Ingesting a leftover still addicts,
+       because CompDrug checks addictiveness, not canBeAddicted.
+       Smokeleaf and Alcohol stay eligible. Psilocap already sets this false.
+       Penoxycyline has no chemical. -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ChemicalDef[defName="Psychite" or defName="WakeUp" or defName="GoJuice" or defName="Luciferium" or defName="Ambrosia"]</xpath>
+    <value>
+      <canBeAddicted>false</canBeAddicted>
+    </value>
+  </Operation>
+</Patch>
