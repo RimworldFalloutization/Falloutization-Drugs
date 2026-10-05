@@ -6,18 +6,26 @@
     <xpath>Defs/ThingDef[defName="PsychiteTea"]</xpath>
     <value><thingCategories /></value>
   </Operation>
-  <Operation Class="PatchOperationAdd">
-    <xpath>Defs/ThingDef[defName="Flake"]</xpath>
-    <value><thingCategories /></value>
+  <!-- Flake, Yayo, Wake-up: full disable like Go-Juice.
+       Parent DrugBase still supplies Drugs category + tradeTags unless Inherit="False";
+       drugCategory Hard also keeps them in RandomDrugs / IsDrug loot pools.
+       Explicit thingDefs lists are replaced below. -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Flake" or defName="Yayo" or defName="WakeUp"]/ingestible/drugCategory</xpath>
+    <value>
+      <drugCategory>None</drugCategory>
+    </value>
   </Operation>
   <Operation Class="PatchOperationAdd">
-    <xpath>Defs/ThingDef[defName="Yayo"]</xpath>
-    <value><thingCategories /></value>
+    <xpath>Defs/ThingDef[defName="Flake" or defName="Yayo" or defName="WakeUp"]</xpath>
+    <value>
+      <thingCategories Inherit="False" />
+      <tradeTags Inherit="False" />
+      <thingSetMakerTags Inherit="False" />
+      <tradeability>None</tradeability>
+    </value>
   </Operation>
-  <Operation Class="PatchOperationAdd">
-    <xpath>Defs/ThingDef[defName="WakeUp"]</xpath>
-    <value><thingCategories /></value>
-  </Operation>
+
   <!-- GoJuice (Greenway: "distilled brahmin shrooms"): full disable like AUR/extract draughts.
        Parent DrugBase still supplies Drugs category + tradeTags unless Inherit="False";
        drugCategory Hard also keeps it in RandomDrugs / IsDrug loot pools. -->
@@ -39,13 +47,66 @@
   <Operation Class="PatchOperationRemove">
     <xpath>Defs/ThingSetMakerDef[defName="PirateRaidLootMaker"]//thingDefs/li[.="GoJuice"]</xpath>
   </Operation>
+  <!-- Pirate raid loot (also used by FIP Raider Mutant Army via HHTools_Raider).
+       Flake => Jet, Yayo => Ultrajet, Wake-up => Mentats, Luciferium => X-Cell. -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingSetMakerDef[defName="PirateRaidLootMaker"]//thingDefs/li[.="Flake"]</xpath>
+    <value><li>FCP_Chem_Jet</li></value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingSetMakerDef[defName="PirateRaidLootMaker"]//thingDefs/li[.="Yayo"]</xpath>
+    <value><li>FCP_Chem_Ultrajet</li></value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingSetMakerDef[defName="PirateRaidLootMaker"]//thingDefs/li[.="WakeUp"]</xpath>
+    <value><li>FCP_Chem_Mentats</li></value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingSetMakerDef[defName="PirateRaidLootMaker"]//thingDefs/li[.="Luciferium"]</xpath>
+    <value><li>FCP_Chem_X_Cell</li></value>
+  </Operation>
+  <Operation Class="PatchOperationRemove" MayRequire="OskarPotocki.VFE.Pirates">
+    <xpath>Defs/ThingSetMakerDef[defName="VFEP_JunkersRaidLootMaker"]//thingDefs/li[.="GoJuice"]</xpath>
+  </Operation>
+  <Operation Class="PatchOperationReplace" MayRequire="OskarPotocki.VFE.Pirates">
+    <xpath>Defs/ThingSetMakerDef[defName="VFEP_JunkersRaidLootMaker"]//thingDefs/li[.="Flake"]</xpath>
+    <value><li>FCP_Chem_Jet</li></value>
+  </Operation>
+  <Operation Class="PatchOperationReplace" MayRequire="OskarPotocki.VFE.Pirates">
+    <xpath>Defs/ThingSetMakerDef[defName="VFEP_JunkersRaidLootMaker"]//thingDefs/li[.="Yayo"]</xpath>
+    <value><li>FCP_Chem_Ultrajet</li></value>
+  </Operation>
+  <Operation Class="PatchOperationReplace" MayRequire="OskarPotocki.VFE.Pirates">
+    <xpath>Defs/ThingSetMakerDef[defName="VFEP_JunkersRaidLootMaker"]//thingDefs/li[.="WakeUp"]</xpath>
+    <value><li>FCP_Chem_Mentats</li></value>
+  </Operation>
+  <Operation Class="PatchOperationReplace" MayRequire="OskarPotocki.VFE.Pirates">
+    <xpath>Defs/ThingSetMakerDef[defName="VFEP_JunkersRaidLootMaker"]//thingDefs/li[.="Luciferium"]</xpath>
+    <value><li>FCP_Chem_X_Cell</li></value>
+  </Operation>
 
   <Operation Class="PatchOperationAdd">
     <xpath>Defs/ThingDef[defName="Penoxycyline"]</xpath>
     <value><thingCategories /></value>
   </Operation>
+  <!-- Luciferium has its own tradeTags. thingSetMakerTags are cleared in RemoveLuciferiumFromLootCrates. -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Luciferium"]/ingestible/drugCategory</xpath>
+    <value>
+      <drugCategory>None</drugCategory>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="Luciferium"]/tradeTags</xpath>
+    <value>
+      <tradeTags Inherit="False" />
+    </value>
+  </Operation>
   <Operation Class="PatchOperationAdd">
     <xpath>Defs/ThingDef[defName="Luciferium"]</xpath>
-    <value><thingCategories /></value>
+    <value>
+      <thingCategories Inherit="False" />
+      <tradeability>None</tradeability>
+    </value>
   </Operation>
 </Patch>

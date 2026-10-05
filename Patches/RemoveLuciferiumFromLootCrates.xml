@@ -5,7 +5,7 @@
   <Operation Class="PatchOperationReplace">
     <xpath>Defs/ThingDef[defName="Luciferium"]/thingSetMakerTags</xpath>
     <value>
-      <thingSetMakerTags />
+      <thingSetMakerTags Inherit="False" />
     </value>
   </Operation>
 
@@ -30,6 +30,10 @@
   </Operation>
   <Operation Class="PatchOperationReplace">
       <xpath>Defs/ThingSetMakerDef[defName='MapGen_AncientComplexRoomLoot_Default']/root/options/li[thingSetMaker/fixedParams/filter/thingDefs/li='Luciferium']/thingSetMaker/fixedParams/filter/thingDefs/li</xpath>
+      <value><li>FCP_Chem_X_Cell</li></value>
+  </Operation>
+  <Operation Class="PatchOperationReplace" MayRequire="Ludeon.RimWorld.Ideology">
+      <xpath>Defs/ThingSetMakerDef[defName='MapGen_AncientComplexRoomLoot_Better']/root/options/li[thingSetMaker/fixedParams/filter/thingDefs/li='Luciferium']/thingSetMaker/fixedParams/filter/thingDefs/li</xpath>
       <value><li>FCP_Chem_X_Cell</li></value>
   </Operation>
 </Patch>

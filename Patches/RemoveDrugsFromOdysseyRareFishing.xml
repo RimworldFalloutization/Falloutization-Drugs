@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch MayRequire="Ludeon.RimWorld.Odyssey">
   <!-- Remove specified drugs from rare fishing catches -->
-  <Operation Class="PatchOperationRemove">
+  <Operation Class="PatchOperationReplace">
     <xpath>Defs/ThingSetMakerDef[@Name='RareFishingCatchesBase']/root/options/li[thingSetMaker/fixedParams/filter/thingDefs/li='Luciferium']/thingSetMaker/fixedParams/filter/thingDefs/li[.='Luciferium']</xpath>
+    <value><li>FCP_Chem_X_Cell</li></value>
   </Operation>
   <Operation Class="PatchOperationRemove">
     <xpath>Defs/ThingSetMakerDef[@Name='RareFishingCatchesBase']/root/options/li[thingSetMaker/fixedParams/filter/thingDefs/li='Ambrosia']/thingSetMaker/fixedParams/filter/thingDefs/li[.='Ambrosia']</xpath>
@@ -10,13 +11,16 @@
   <Operation Class="PatchOperationRemove">
     <xpath>Defs/ThingSetMakerDef[@Name='RareFishingCatchesBase']/root/options/li[thingSetMaker/fixedParams/filter/thingDefs/li='GoJuice']/thingSetMaker/fixedParams/filter/thingDefs/li[.='GoJuice']</xpath>
   </Operation>
-  <Operation Class="PatchOperationRemove">
+  <Operation Class="PatchOperationReplace">
     <xpath>Defs/ThingSetMakerDef[@Name='RareFishingCatchesBase']/root/options/li[thingSetMaker/fixedParams/filter/thingDefs/li='Flake']/thingSetMaker/fixedParams/filter/thingDefs/li[.='Flake']</xpath>
+    <value><li>FCP_Chem_Jet</li></value>
   </Operation>
-  <Operation Class="PatchOperationRemove">
+  <Operation Class="PatchOperationReplace">
     <xpath>Defs/ThingSetMakerDef[@Name='RareFishingCatchesBase']/root/options/li[thingSetMaker/fixedParams/filter/thingDefs/li='Yayo']/thingSetMaker/fixedParams/filter/thingDefs/li[.='Yayo']</xpath>
+    <value><li>FCP_Chem_Ultrajet</li></value>
   </Operation>
-  <Operation Class="PatchOperationRemove">
+  <Operation Class="PatchOperationReplace">
     <xpath>Defs/ThingSetMakerDef[@Name='RareFishingCatchesBase']/root/options/li[thingSetMaker/fixedParams/filter/thingDefs/li='WakeUp']/thingSetMaker/fixedParams/filter/thingDefs/li[.='WakeUp']</xpath>
+    <value><li>FCP_Chem_Mentats</li></value>
   </Operation>
 </Patch>

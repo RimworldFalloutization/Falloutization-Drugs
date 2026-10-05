@@ -10,12 +10,17 @@
   <Operation Class="PatchOperationRemove">
     <xpath>Defs/ThingSetMakerDef[defName='FCP_KhanRaidLootMaker']/root/fixedParams/filter/thingDefs/li[.='WakeUp']</xpath>
   </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingSetMakerDef[defName='FCP_KhanRankExpeditionLootMaker']/root/fixedParams/filter/thingDefs/li[.='Yayo']</xpath>
+    <value><li>FCP_Chem_Ultrajet</li></value>
+  </Operation>
   <!-- Add all FCP chems to Great Khans raid loot -->
   <Operation Class="PatchOperationAdd">
     <xpath>Defs/ThingSetMakerDef[defName='FCP_KhanRaidLootMaker']/root/fixedParams/filter/thingDefs</xpath>
     <value>
       <li>FCP_Chem_Healing_Powder</li>
       <li>FCP_Chem_Jet</li>
+      <li>FCP_Chem_Ultrajet</li>
       <li>FCP_Chem_Psycho</li>
       <li>FCP_Chem_Mentats</li>
       <li>FCP_Chem_Turbo</li>

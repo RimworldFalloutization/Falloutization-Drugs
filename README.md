@@ -16,9 +16,11 @@
 - Penoxycyline => Stimpak in backstory and trait possessions
 - Penoxycyline => Radaway when beggers ask for it
 - Flake => Jet
+- Yayo => Ultrajet
 - Psychite Tea => Smokeleaf Joint
 - Go-Juice => Jet
 - Wake-Up => Mentats
+- Luciferium => X-Cell
 
 ## Removals
 
