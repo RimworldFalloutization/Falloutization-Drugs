@@ -65,24 +65,41 @@
     <xpath>Defs/ThingSetMakerDef[defName="PirateRaidLootMaker"]//thingDefs/li[.="Luciferium"]</xpath>
     <value><li>FCP_Chem_X_Cell</li></value>
   </Operation>
-  <Operation Class="PatchOperationRemove" MayRequire="OskarPotocki.VFE.Pirates">
+  <!-- VFE Pirates is optional. MayRequire on Operation is not consulted while
+       patches load, so a missing loot maker logs an xpath error. Test first. -->
+  <Operation Class="PatchOperationConditional">
     <xpath>Defs/ThingSetMakerDef[defName="VFEP_JunkersRaidLootMaker"]//thingDefs/li[.="GoJuice"]</xpath>
+    <match Class="PatchOperationRemove">
+      <xpath>Defs/ThingSetMakerDef[defName="VFEP_JunkersRaidLootMaker"]//thingDefs/li[.="GoJuice"]</xpath>
+    </match>
   </Operation>
-  <Operation Class="PatchOperationReplace" MayRequire="OskarPotocki.VFE.Pirates">
+  <Operation Class="PatchOperationConditional">
     <xpath>Defs/ThingSetMakerDef[defName="VFEP_JunkersRaidLootMaker"]//thingDefs/li[.="Flake"]</xpath>
-    <value><li>FCP_Chem_Jet</li></value>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/ThingSetMakerDef[defName="VFEP_JunkersRaidLootMaker"]//thingDefs/li[.="Flake"]</xpath>
+      <value><li>FCP_Chem_Jet</li></value>
+    </match>
   </Operation>
-  <Operation Class="PatchOperationReplace" MayRequire="OskarPotocki.VFE.Pirates">
+  <Operation Class="PatchOperationConditional">
     <xpath>Defs/ThingSetMakerDef[defName="VFEP_JunkersRaidLootMaker"]//thingDefs/li[.="Yayo"]</xpath>
-    <value><li>FCP_Chem_Ultrajet</li></value>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/ThingSetMakerDef[defName="VFEP_JunkersRaidLootMaker"]//thingDefs/li[.="Yayo"]</xpath>
+      <value><li>FCP_Chem_Ultrajet</li></value>
+    </match>
   </Operation>
-  <Operation Class="PatchOperationReplace" MayRequire="OskarPotocki.VFE.Pirates">
+  <Operation Class="PatchOperationConditional">
     <xpath>Defs/ThingSetMakerDef[defName="VFEP_JunkersRaidLootMaker"]//thingDefs/li[.="WakeUp"]</xpath>
-    <value><li>FCP_Chem_Mentats</li></value>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/ThingSetMakerDef[defName="VFEP_JunkersRaidLootMaker"]//thingDefs/li[.="WakeUp"]</xpath>
+      <value><li>FCP_Chem_Mentats</li></value>
+    </match>
   </Operation>
-  <Operation Class="PatchOperationReplace" MayRequire="OskarPotocki.VFE.Pirates">
+  <Operation Class="PatchOperationConditional">
     <xpath>Defs/ThingSetMakerDef[defName="VFEP_JunkersRaidLootMaker"]//thingDefs/li[.="Luciferium"]</xpath>
-    <value><li>FCP_Chem_X_Cell</li></value>
+    <match Class="PatchOperationReplace">
+      <xpath>Defs/ThingSetMakerDef[defName="VFEP_JunkersRaidLootMaker"]//thingDefs/li[.="Luciferium"]</xpath>
+      <value><li>FCP_Chem_X_Cell</li></value>
+    </match>
   </Operation>
 
   <Operation Class="PatchOperationAdd">
