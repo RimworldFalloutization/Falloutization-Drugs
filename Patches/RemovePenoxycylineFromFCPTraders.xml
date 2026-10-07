@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch MayRequire="Rick.FCP.Wastelanders">
+  <!-- Penoxycyline is tradeability None; leave the stock li and ConfigErrors fire. -->
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/TraderKindDef[defName="FCP_Trader_Megaton_Clinic"]/stockGenerators/li[thingDef="Penoxycyline"]</xpath>
+  </Operation>
+  <Operation Class="PatchOperationRemove">
+    <xpath>Defs/TraderKindDef[defName="FCP_Trader_RivetCity_AQuickFix"]/stockGenerators/li[thingDef="Penoxycyline"]</xpath>
+  </Operation>
+</Patch>
